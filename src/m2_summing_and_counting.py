@@ -22,6 +22,8 @@ import math
 #        -- IN the loop?
 #        -- AFTER the loop?
 # ----------------------------------------------------------------------
+
+
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_sum_more_cosines()
@@ -64,13 +66,13 @@ def run_test_sum_more_cosines():
     print('       actual:  ', answer)
 
     # Test 2:
-    expected = 1.5403 # This is APPROXIMATELY the correct answer.
+    expected = 1.5403  # This is APPROXIMATELY the correct answer.
     answer = sum_more_cosines(0, 1)
     print('Test 2 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
 
     # Test 3:
-    expected = -0.8658370273 # This is APPROXIMATELY the correct answer.
+    expected = -0.8658370273  # This is APPROXIMATELY the correct answer.
     answer = sum_more_cosines(-3, -1)
     print('Test 3 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
@@ -165,6 +167,36 @@ def run_test_count_sines_from():
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 4:
+    expected = 2
+    answer = count_sines_from(100, 102)
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 5:
+    expected = 2
+    answer = count_sines_from(-555, -554)
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 6:
+    expected = 1
+    answer = count_sines_from(0, 0)
+    print('Test 6 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 7:
+    expected = 1
+    answer = count_sines_from(6, 7)
+    print('Test 7 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 8:
+    expected = 4
+    answer = count_sines_from(10, 14)
+    print('Test 8 expected:', expected)
+    print('       actual:  ', answer)
+
 
 def count_sines_from(m, n):
     """
@@ -223,10 +255,52 @@ def run_test_count_sines_vs_cosines():
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
 
+    # Test 2:
+    expected = 1
+    answer = count_sines_vs_cosines(1)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 2
+    answer = count_sines_vs_cosines(2)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
+
     # ------------------------------------------------------------------
     # TO DO: 6 (continued).
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
+
+    # Test 4:
+    expected = 4
+    answer = count_sines_vs_cosines(3)
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 5:
+    expected = 5
+    answer = count_sines_vs_cosines(4)
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 6:
+    expected = 6
+    answer = count_sines_vs_cosines(5)
+    print('Test 6 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 7:
+    expected = 6
+    answer = count_sines_vs_cosines(6)
+    print('Test 7 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test :8
+    expected = 6
+    answer = count_sines_vs_cosines(7)
+    print('Test 8 expected:', expected)
+    print('       actual:  ', answer)
 
 
 def count_sines_vs_cosines(m):
@@ -235,7 +309,7 @@ def count_sines_vs_cosines(m):
     What goes out:  Returns the number of integers from -m to m,
        inclusive, whose sine is greater than its cosine.
     Side effects:   None.
-    Examples:
+    Examples: 1-1,2-2,3-4,4-5,5-6
     Since:  sine(-5) is about  0.96  and cosine(-5) is about  0.28
             sine(-4) is about  0.76  and cosine(-4) is about -0.65
             sine(-3) is about -0.14  and cosine(-3) is about -0.99
@@ -261,6 +335,13 @@ def count_sines_vs_cosines(m):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+
+    count = 0
+    for k in range(2*m+1):
+        if math.sin(k-m) > math.cos(k-m):
+            count = count + 1
+
+    return count
 
 
 # ----------------------------------------------------------------------
