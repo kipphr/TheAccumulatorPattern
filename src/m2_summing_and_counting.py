@@ -10,6 +10,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
          their colleagues and Dutch Kipp.
 """  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
+import math
 
 # ----------------------------------------------------------------------
 # Students: As you work each of these problems, ask yourself:
@@ -63,15 +64,15 @@ def run_test_sum_more_cosines():
     print('       actual:  ', answer)
 
     # Test 2:
-    expected = -1.776120769 # This is APPROXIMATELY the correct answer.
-    answer = sum_more_cosines(2, 5)
-    print('Test 1 expected:', expected, '(approximately)')
+    expected = 1.5403 # This is APPROXIMATELY the correct answer.
+    answer = sum_more_cosines(0, 1)
+    print('Test 2 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
 
     # Test 3:
     expected = -0.8658370273 # This is APPROXIMATELY the correct answer.
     answer = sum_more_cosines(-3, -1)
-    print('Test 1 expected:', expected, '(approximately)')
+    print('Test 3 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
 
     # ------------------------------------------------------------------
@@ -106,6 +107,12 @@ def sum_more_cosines(m, n):
     #   Just   range(blah)   where blah is a single variable.
     #   Reason: To ensure that you get more practice using variables.
     # ------------------------------------------------------------------
+
+    total = 0
+    for k in range(n-m+1):
+        total = total + math.cos(k+m)
+
+    return total
 
 
 def run_test_count_sines_from():
